@@ -1,11 +1,13 @@
-FROM node:latest
+FROM node:18-alpine
 
-COPY *.json /app/
+WORKDIR /client
+
+COPY *.json ./
 
 RUN npm install
 
 COPY . .   
 
-EXPOSE 5173
+EXPOSE 8080
 
-CMD ["npm", "run", "dev"]
+CMD [ "npm", "run", "dev" ]
